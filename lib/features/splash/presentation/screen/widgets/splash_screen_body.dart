@@ -25,7 +25,11 @@ class _SplashScreenBodyState extends State<SplashScreenBody> {
     Future.delayed(const Duration(seconds: 3), () {
       if (mounted) {
         if (SharedPreferencesService.getBool(kIsNotFirstTime)) {
-          Navigator.pushReplacementNamed(context, LoginScreen.routeName);
+          if (SharedPreferencesService.getBool(kIsLogin)) {
+            Navigator.pushReplacementNamed(context, 'home');
+          } else {
+            Navigator.pushReplacementNamed(context, LoginScreen.routeName);
+          }
         } else {
           Navigator.pushReplacementNamed(context, OnBoardingScreen.routeName);
         }
@@ -40,7 +44,7 @@ class _SplashScreenBodyState extends State<SplashScreenBody> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
             SvgPicture.asset(Assets.assetsImagesPlant),
           ],
