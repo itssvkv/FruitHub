@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fruit_app/core/constants.dart';
+import 'package:fruit_app/core/services/shared_preferences_service.dart';
+import 'package:fruit_app/features/auth/presentation/screens/login_screen.dart';
 
-import '../../../../../utils/app_images.dart';
+import '../../../../../core/utils/app_images.dart';
 import '../../../../on_boarding/presentation/screen/on_boarding_screen.dart';
 
 class SplashScreenBody extends StatefulWidget {
@@ -21,7 +24,11 @@ class _SplashScreenBodyState extends State<SplashScreenBody> {
   void navigateTo() {
     Future.delayed(const Duration(seconds: 3), () {
       if (mounted) {
-        Navigator.pushReplacementNamed(context, OnBoardingScreen.routeName);
+        if (SharedPreferencesService.getBool(kIsNotFirstTime)) {
+          Navigator.pushReplacementNamed(context, LoginScreen.routeName);
+        } else {
+          Navigator.pushReplacementNamed(context, OnBoardingScreen.routeName);
+        }
       }
     });
   }

@@ -8,6 +8,8 @@ class OnBoardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return OnBoardingScreenBody();
+    return Scaffold(
+      body: OnBoardingScreenBody(),
+    );
   }
 }
