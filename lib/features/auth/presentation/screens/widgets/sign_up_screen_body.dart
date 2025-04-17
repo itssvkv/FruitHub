@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,6 +10,7 @@ import 'package:fruit_app/features/auth/presentation/screens/widgets/terms_and_c
 
 import '../../../../../core/constants.dart';
 import '../../../../../core/services/shared_preferences_service.dart';
+import '../../../../../core/widgets/custom_snack_bar.dart';
 import '../../../../../core/widgets/main_text_form_field.dart';
 import '../../../../home/presentation/screens/home_screen.dart';
 
@@ -22,6 +25,7 @@ class _SignUpScreenBodyState extends State<SignUpScreenBody> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   late String email, password, userName;
+  bool isHidePassword = true;
   @override
   Widget build(BuildContext context) {
     SignupCubit signupCubit = BlocProvider.of(context);
@@ -59,13 +63,21 @@ class _SignUpScreenBodyState extends State<SignUpScreenBody> {
               MainTextFormField(
                 hintText: 'كلمة المرور',
                 textInputType: TextInputType.visiblePassword,
-                suffixIcon: Icon(
-                  Icons.visibility,
-                  color: Color(0xFFC9CECF),
+                suffixIcon: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      isHidePassword = !isHidePassword;
+                    });
+                  },
+                  icon: Icon(
+                    isHidePassword ? Icons.visibility : Icons.visibility_off,
+                    color: Color(0xFFC9CECF),
+                  ),
                 ),
                 onSaved: (value) {
                   password = value!;
                 },
+                isHidePassword: isHidePassword,
               ),
               SizedBox(
                 height: 16,
@@ -76,20 +88,25 @@ class _SignUpScreenBodyState extends State<SignUpScreenBody> {
               ),
               BlocConsumer<SignupCubit, SignupState>(
                 listener: (context, state) {
-                  switch (state) {
-                    case SignupInitial():
-                      signupCubit.isLoading = false;
-                    case SignupLoading():
-                      signupCubit.isLoading = true;
-                    case SignupSuccess():
-                      signupCubit.isLoading = false;
-                    case SignupFailure():
-                      signupCubit.isLoading = false;
+                  if (state is SignupLoading) {
+                    signupCubit.isLoading = true;
+                  } else if (state is SignupSuccess) {
+                    signupCubit.isLoading = false;
+                    Navigator.pop(context);
+                    Navigator.pushReplacementNamed(
+                        context, HomeScreen.routeName);
+                    SharedPreferencesService.setBool(kIsLogin, true);
+                  } else if (state is SignupFailure) {
+                    signupCubit.isLoading = false;
+                    customSnackBar(context, state.message);
+                  } else {
+                    signupCubit.isLoading = false;
                   }
                 },
                 builder: (context, state) {
                   return MainButton(
                     onPressed: () {
+                      log('zipiii');
                       if (formKey.currentState!.validate()) {
                         formKey.currentState!.save();
                         context
@@ -99,10 +116,6 @@ class _SignUpScreenBodyState extends State<SignUpScreenBody> {
                               password,
                               userName,
                             );
-                        // Navigator.pop(context);
-                        // Navigator.pushReplacementNamed(
-                        //     context, HomeScreen.routeName);
-                        // SharedPreferencesService.setBool(kIsLogin, true);
                       } else {
                         setState(() {
                           autovalidateMode = AutovalidateMode.always;

@@ -7,14 +7,17 @@ class MainTextFormField extends StatelessWidget {
       required this.hintText,
       required this.textInputType,
       this.suffixIcon,
-      this.onSaved});
+      this.onSaved,
+      this.isHidePassword = true});
   final String hintText;
   final TextInputType textInputType;
   final Widget? suffixIcon;
   final void Function(String?)? onSaved;
+  final bool isHidePassword;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      obscureText: isHidePassword,
       onSaved: onSaved,
       validator: (value) {
         if (value == null || value.isEmpty) {

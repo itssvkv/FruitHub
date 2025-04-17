@@ -9,7 +9,7 @@ class MainButton extends StatelessWidget {
     required this.buttonText,
     this.isLoading = false,
   });
-  final void Function() onPressed;
+  final void Function()? onPressed;
   final String buttonText;
   final bool isLoading;
   @override
@@ -19,21 +19,23 @@ class MainButton extends StatelessWidget {
       height: 54,
       child: TextButton(
         style: TextButton.styleFrom(
-            backgroundColor: AppColors.primaryColor,
+            backgroundColor: isLoading
+                ? AppColors.lightPrimaryColor
+                : AppColors.primaryColor,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
             )),
-        onPressed: onPressed,
+        onPressed: isLoading ? null : onPressed,
         child: isLoading
             ? Center(
                 child: SizedBox(
-                  width: 24,
-                  height: 24,
-                  child: CircularProgressIndicator(
+                width: 24,
+                height: 24,
+                child: CircularProgressIndicator(
                   color: Colors.white,
                   strokeWidth: 2,
-                                ),
-                ))
+                ),
+              ))
             : Text(buttonText,
                 style: TextStyle(
                   color: Colors.white,
