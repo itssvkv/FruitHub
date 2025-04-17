@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1098222833011",
+    "project_id": "fruit-app-b4fad",
+    "storage_bucket": "fruit-app-b4fad.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1098222833011:android:a4c0b473cdd4bfd1264906",
+        "android_client_info": {
+          "package_name": "com.example.fruit_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbmPXO3nSyfGzkWRZ6DTVv-vWkkrTn8bo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -13,7 +13,9 @@ import '../../../../../core/services/shared_preferences_service.dart';
 import '../../../../../core/utils/app_images.dart';
 
 class LoginScreenBody extends StatelessWidget {
-  const LoginScreenBody({super.key});
+  LoginScreenBody({super.key});
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -28,6 +30,7 @@ class LoginScreenBody extends StatelessWidget {
             MainTextFormField(
               hintText: 'البريد الإلكتروني',
               textInputType: TextInputType.emailAddress,
+              
             ),
             SizedBox(
               height: 16,
@@ -39,6 +42,7 @@ class LoginScreenBody extends StatelessWidget {
                 Icons.visibility,
                 color: Color(0xFFC9CECF),
               ),
+          
             ),
             SizedBox(
               height: 16,
