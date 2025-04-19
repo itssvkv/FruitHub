@@ -26,6 +26,7 @@ class _SignUpScreenBodyState extends State<SignUpScreenBody> {
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   late String email, password, userName;
   bool isHidePassword = true;
+  bool isTermsAccepted = false;
   @override
   Widget build(BuildContext context) {
     SignupCubit signupCubit = BlocProvider.of(context);
@@ -82,7 +83,11 @@ class _SignUpScreenBodyState extends State<SignUpScreenBody> {
               SizedBox(
                 height: 16,
               ),
-              TermsAndConditionsWidget(onChanged: (value) {}),
+              TermsAndConditionsWidget(
+                onChanged: (value) {
+                  isTermsAccepted = value;
+                },
+              ),
               SizedBox(
                 height: 30,
               ),
@@ -109,13 +114,20 @@ class _SignUpScreenBodyState extends State<SignUpScreenBody> {
                       log('zipiii');
                       if (formKey.currentState!.validate()) {
                         formKey.currentState!.save();
-                        context
-                            .read<SignupCubit>()
-                            .createUserWithEmailAndPassword(
-                              email,
-                              password,
-                              userName,
-                            );
+                        if (isTermsAccepted) {
+                          context
+                              .read<SignupCubit>()
+                              .createUserWithEmailAndPassword(
+                                email,
+                                password,
+                                userName,
+                              );
+                        } else {
+                          customSnackBar(
+                            context,
+                            'برجاء الموافقة على الشروط والإحكام',
+                          );
+                        }
                       } else {
                         setState(() {
                           autovalidateMode = AutovalidateMode.always;

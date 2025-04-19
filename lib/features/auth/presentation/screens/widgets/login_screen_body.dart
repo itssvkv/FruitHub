@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -138,23 +139,33 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
               ),
               SocialLoginButton(
                 icon: Assets.assetsImagesGoogleIcon,
-                onPressed: () {},
+                onPressed: () {
+                  loginCubit.signInWithGoogle();
+                },
                 title: 'تسجيل بواسطة جوجل',
               ),
-              SizedBox(
-                height: 16,
-              ),
-              SocialLoginButton(
-                icon: Assets.assetsImagesApplIcon,
-                onPressed: () {},
-                title: 'تسجيل بواسطة أبل',
-              ),
+              Platform.isIOS
+                  ? Column(
+                      children: [
+                        SizedBox(
+                          height: 16,
+                        ),
+                        SocialLoginButton(
+                          icon: Assets.assetsImagesApplIcon,
+                          onPressed: () {},
+                          title: 'تسجيل بواسطة أبل',
+                        )
+                      ],
+                    )
+                  : SizedBox(),
               SizedBox(
                 height: 16,
               ),
               SocialLoginButton(
                 icon: Assets.assetsImagesFacebookIcon,
-                onPressed: () {},
+                onPressed: () {
+                  loginCubit.signInWithFacebook();
+                },
                 title: 'تسجيل بواسطة فيسبوك',
               ),
               SizedBox(

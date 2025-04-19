@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:fruit_app/core/utils/app_text_styles.dart';
 
 class MainTextFormField extends StatelessWidget {
-  const MainTextFormField(
-      {super.key,
-      required this.hintText,
-      required this.textInputType,
-      this.suffixIcon,
-      this.onSaved,
-      this.isHidePassword = true});
+  const MainTextFormField({
+    super.key,
+    required this.hintText,
+    required this.textInputType,
+    this.suffixIcon,
+    this.onSaved,
+    this.isHidePassword = false,
+  });
   final String hintText;
   final TextInputType textInputType;
   final Widget? suffixIcon;
