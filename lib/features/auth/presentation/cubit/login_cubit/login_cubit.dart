@@ -1,8 +1,6 @@
-import 'dart:math';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:fruit_app/core/errors/failure.dart';
 import 'package:fruit_app/features/auth/domain/repository/auth_repo.dart';
 
 import '../../../domain/entity/user_entity.dart';

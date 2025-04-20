@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_app/core/widgets/main_botton.dart';
 import 'package:fruit_app/features/auth/presentation/cubit/signup_cubit/signup_cubit.dart';
