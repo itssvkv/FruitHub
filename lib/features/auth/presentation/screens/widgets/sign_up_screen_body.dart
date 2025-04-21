@@ -97,9 +97,6 @@ class _SignUpScreenBodyState extends State<SignUpScreenBody> {
                   } else if (state is SignupSuccess) {
                     signupCubit.isLoading = false;
                     Navigator.pop(context);
-                    Navigator.pushReplacementNamed(
-                        context, HomeScreen.routeName);
-                    SharedPreferencesService.setBool(kIsLogin, true);
                   } else if (state is SignupFailure) {
                     signupCubit.isLoading = false;
                     customSnackBar(context, state.message);

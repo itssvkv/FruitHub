@@ -1,6 +1,4 @@
 import 'dart:developer';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fruit_app/core/errors/exception.dart';
@@ -11,7 +9,6 @@ import 'package:fruit_app/core/utils/remote_paths.dart';
 import 'package:fruit_app/features/auth/data/model/user_model.dart';
 import 'package:fruit_app/features/auth/domain/entity/user_entity.dart';
 import 'package:fruit_app/features/auth/domain/repository/auth_repo.dart';
-
 class AuthRepoImpl extends AuthRepo {
   final FirebaseAuthService firebaseAuthService;
   final RemoteService remoteService;

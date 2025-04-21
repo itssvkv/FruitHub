@@ -18,6 +18,14 @@ class Assets {
   /// assets/images/facebook_icon.svg
   static const String assetsImagesFacebookIcon = "assets/images/facebook_icon.svg";
 
+  /// Assets for assetsImagesFeaturedItemBackground
+  /// assets/images/featured_item_background.svg
+  static const String assetsImagesFeaturedItemBackground = "assets/images/featured_item_background.svg";
+
+  /// Assets for assetsImagesFilter
+  /// assets/images/filter.svg
+  static const String assetsImagesFilter = "assets/images/filter.svg";
+
   /// Assets for assetsImagesGoogleIcon
   /// assets/images/google_icon.svg
   static const String assetsImagesGoogleIcon = "assets/images/google_icon.svg";
@@ -25,6 +33,10 @@ class Assets {
   /// Assets for assetsImagesLogo
   /// assets/images/logo.svg
   static const String assetsImagesLogo = "assets/images/logo.svg";
+
+  /// Assets for assetsImagesNotification
+  /// assets/images/notification.svg
+  static const String assetsImagesNotification = "assets/images/notification.svg";
 
   /// Assets for assetsImagesOnBoarding1BackgroundImage
   /// assets/images/on_boarding1_background_image.svg
@@ -45,5 +57,13 @@ class Assets {
   /// Assets for assetsImagesPlant
   /// assets/images/plant.svg
   static const String assetsImagesPlant = "assets/images/plant.svg";
+
+  /// Assets for assetsImagesProfile
+  /// assets/images/profile.png
+  static const String assetsImagesProfile = "assets/images/profile.png";
+
+  /// Assets for assetsImagesSearchIcon
+  /// assets/images/search_icon.svg
+  static const String assetsImagesSearchIcon = "assets/images/search_icon.svg";
 }
 

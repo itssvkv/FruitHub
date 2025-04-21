@@ -1,0 +1,39 @@
+import 'package:flutter/material.dart';
+import 'package:fruit_app/core/widgets/search_text_field.dart';
+import 'package:fruit_app/features/home/presentation/screens/widgets/best_selling_header.dart';
+
+import 'package:fruit_app/features/home/presentation/screens/widgets/featured_list.dart';
+import 'package:fruit_app/features/home/presentation/screens/widgets/home_screen_header.dart';
+
+class HomeScreenBody extends StatelessWidget {
+  const HomeScreenBody({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Column(
+              children: [
+                HomeScreenHeader(),
+                SizedBox(
+                  height: 16,
+                ),
+                SearchTextField(),
+                SizedBox(
+                  height: 12,
+                ),
+                FeaturedList(),
+                SizedBox(
+                  height: 12,
+                ),
+                BestSellingHeader(),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
