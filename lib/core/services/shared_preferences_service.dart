@@ -7,11 +7,26 @@ class SharedPreferencesService {
     _instance = await SharedPreferences.getInstance();
   }
 
-  static setBool(String key, bool value) {
-    _instance.setBool(key, value);
+  static Future<void> setValue<T>(String key, T value) async {
+    if (value is bool) {
+      await _instance.setBool(key, value);
+    } else if (value is int) {
+      await _instance.setInt(key, value);
+    } else if (value is double) {
+      await _instance.setDouble(key, value);
+    } else if (value is String) {
+      await _instance.setString(key, value);
+    } else {
+      throw UnsupportedError('Type ${T.runtimeType} is not supported');
+    }
   }
 
-  static bool getBool(String key) {
-    return _instance.getBool(key) ?? false;
+  static T getValue<T>(String key, T defaultValue) {
+    final value = _instance.get(key);
+    if (value is T) {
+      return value;
+    } else {
+      return defaultValue;
+    }
   }
 }

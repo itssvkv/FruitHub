@@ -4,6 +4,7 @@ import 'package:fruit_app/features/home/presentation/screens/widgets/best_sellin
 
 import 'package:fruit_app/features/home/presentation/screens/widgets/featured_list.dart';
 import 'package:fruit_app/features/home/presentation/screens/widgets/home_screen_header.dart';
+import 'package:fruit_app/features/home/presentation/screens/widgets/products_grid_view.dart';
 
 class HomeScreenBody extends StatelessWidget {
   const HomeScreenBody({super.key});
@@ -29,8 +30,13 @@ class HomeScreenBody extends StatelessWidget {
                   height: 12,
                 ),
                 BestSellingHeader(),
+                SizedBox(
+                  height: 8,
+                )
               ],
             ),
+          ),
+          ProductsGridView(
           ),
         ],
       ),

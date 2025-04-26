@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:fruit_app/core/helper/get_user.dart';
+
 import 'package:fruit_app/core/utils/app_text_styles.dart';
+import 'package:fruit_app/core/widgets/notification_widget.dart';
 
 import '../../../../../core/utils/app_images.dart';
 
@@ -9,14 +11,7 @@ class HomeScreenHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      trailing: Container(
-        padding: const EdgeInsets.all(12),
-        decoration: const ShapeDecoration(
-          color: Color(0xFFEEF8ED),
-          shape: OvalBorder(),
-        ),
-        child: SvgPicture.asset(Assets.assetsImagesNotification),
-      ),
+      trailing: NotificationWidget(),
       leading: Image.asset(Assets.assetsImagesProfile),
       title: Text(
         'صباح الخير..!',
@@ -26,7 +21,7 @@ class HomeScreenHeader extends StatelessWidget {
         ),
       ),
       subtitle: Text(
-        'Mohamed',
+        getUser().name,
         textAlign: TextAlign.right,
         style: AppTextStyles.bold16,
       ),

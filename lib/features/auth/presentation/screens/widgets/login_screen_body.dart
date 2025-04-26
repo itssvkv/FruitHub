@@ -97,7 +97,7 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
                     loginCubit.isLoading = false;
                     Navigator.pushReplacementNamed(
                         context, HomeScreen.routeName);
-                    SharedPreferencesService.setBool(kIsLogin, true);
+                    SharedPreferencesService.setValue(kIsLogin, true);
                   } else if (state is LoginFailure) {
                     loginCubit.isLoading = false;
                     customSnackBar(context, state.message);

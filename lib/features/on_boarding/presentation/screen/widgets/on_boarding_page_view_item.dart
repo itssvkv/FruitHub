@@ -47,7 +47,7 @@ class OnBoardingPageViewItem extends StatelessWidget {
                   onTap: () {
                     Navigator.pushReplacementNamed(
                         context, LoginScreen.routeName);
-                    SharedPreferencesService.setBool(kIsNotFirstTime, true);
+                    SharedPreferencesService.setValue(kIsNotFirstTime, true);
                   },
                   child: Padding(
                     padding: const EdgeInsets.symmetric(

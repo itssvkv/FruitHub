@@ -63,7 +63,7 @@ class _OnBoardingScreenBodyState extends State<OnBoardingScreenBody> {
             child: MainButton(
               onPressed: () {
                 Navigator.pushReplacementNamed(context, LoginScreen.routeName);
-                SharedPreferencesService.setBool(kIsNotFirstTime, true);
+                SharedPreferencesService.setValue(kIsNotFirstTime, true);
               },
               buttonText: 'ابدأ الان',
             ),

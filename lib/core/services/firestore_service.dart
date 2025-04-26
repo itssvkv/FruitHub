@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fruit_app/core/services/remote_service.dart';
-import 'package:fruit_app/features/auth/data/model/user_model.dart';
+
 
 class FirestoreService implements RemoteService {
   FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
@@ -23,7 +23,7 @@ class FirestoreService implements RemoteService {
       {required String path, required String id}) async {
     var result = await firebaseFirestore.collection(path).doc(id).get();
     log(result.data()!.toString());
-    return UserModel.fromJson(result.data()!) as Map<String, dynamic>;
+    return result.data()!;
   }
 
   @override

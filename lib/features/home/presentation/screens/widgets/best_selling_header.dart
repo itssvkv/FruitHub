@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_app/features/best_selling_fruits/presentation/screens/best_selling_fruits_screen.dart';
 
 import '../../../../../core/utils/app_text_styles.dart';
 
@@ -8,7 +9,7 @@ class BestSellingHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      // onTap: () => Navigator.pushNamed(context, BestSellingView.routeName),
+      onTap: () => Navigator.pushNamed(context, BestSellingScreen.routeName),
       child: Row(
         children: [
           const Text(

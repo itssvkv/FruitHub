@@ -6,12 +6,8 @@ import 'package:fruit_app/core/widgets/main_botton.dart';
 import 'package:fruit_app/features/auth/presentation/cubit/signup_cubit/signup_cubit.dart';
 import 'package:fruit_app/features/auth/presentation/screens/widgets/have_an_account_widget.dart';
 import 'package:fruit_app/features/auth/presentation/screens/widgets/terms_and_conditions.dart';
-
-import '../../../../../core/constants.dart';
-import '../../../../../core/services/shared_preferences_service.dart';
 import '../../../../../core/widgets/custom_snack_bar.dart';
 import '../../../../../core/widgets/main_text_form_field.dart';
-import '../../../../home/presentation/screens/home_screen.dart';
 
 class SignUpScreenBody extends StatefulWidget {
   const SignUpScreenBody({super.key});

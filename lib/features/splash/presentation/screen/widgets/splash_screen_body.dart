@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruit_app/core/constants.dart';
 import 'package:fruit_app/core/services/shared_preferences_service.dart';
 import 'package:fruit_app/features/auth/presentation/screens/login_screen.dart';
+import 'package:fruit_app/features/home/presentation/screens/home_screen.dart';
 
 import '../../../../../core/utils/app_images.dart';
 import '../../../../on_boarding/presentation/screen/on_boarding_screen.dart';
@@ -24,9 +25,9 @@ class _SplashScreenBodyState extends State<SplashScreenBody> {
   void navigateTo() {
     Future.delayed(const Duration(seconds: 3), () {
       if (mounted) {
-        if (SharedPreferencesService.getBool(kIsNotFirstTime)) {
-          if (SharedPreferencesService.getBool(kIsLogin)) {
-            Navigator.pushReplacementNamed(context, 'home');
+        if (SharedPreferencesService.getValue(kIsNotFirstTime, true)) {
+          if (SharedPreferencesService.getValue(kIsLogin, false)) {
+            Navigator.pushReplacementNamed(context, LoginScreen.routeName);
           } else {
             Navigator.pushReplacementNamed(context, LoginScreen.routeName);
           }
