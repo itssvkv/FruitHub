@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:fruit_app/core/entities/product_entity.dart';
+import 'package:fruit_app/core/domain/entities/product_entity.dart';
 import 'package:fruit_app/core/utils/app_colors.dart';
 import 'package:fruit_app/core/utils/app_text_styles.dart';
 import 'package:fruit_app/core/widgets/custom_network_image.dart';

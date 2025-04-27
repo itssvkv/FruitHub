@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:fruit_app/core/entities/review_entity.dart';
+import 'package:fruit_app/core/domain/entities/review_entity.dart';
 
 @immutable
 class ProductEntity extends Equatable {
