@@ -4,8 +4,8 @@ abstract class RemoteService {
       required Map<String, dynamic> data,
       String? docId});
 
-  Future<Map<String, dynamic>> getData(
-      {required String path, required String id});
+  Future<dynamic> getData(
+      {required String path, String? id, Map<String, dynamic>? query});
 
   Future<bool> checkIfDataExists({required String path, required String id});
 }

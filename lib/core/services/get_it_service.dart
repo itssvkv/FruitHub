@@ -1,3 +1,5 @@
+import 'package:fruit_app/core/data/repository/product_repo_impl.dart';
+import 'package:fruit_app/core/domain/repository/product_repo.dart';
 import 'package:fruit_app/core/services/firebase_auth_service.dart';
 import 'package:fruit_app/core/services/firestore_service.dart';
 import 'package:fruit_app/core/services/remote_service.dart';
@@ -13,4 +15,6 @@ void setup() {
   getIt.registerSingleton<AuthRepo>(AuthRepoImpl(
       firebaseAuthService: getIt<FirebaseAuthService>(),
       remoteService: getIt<RemoteService>()));
+  getIt.registerSingleton<ProductsRepo>(
+      ProductRepoImpl(remoteService: getIt<RemoteService>()));
 }

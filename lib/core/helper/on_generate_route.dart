@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruit_app/features/auth/presentation/screens/login_screen.dart';
 import 'package:fruit_app/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:fruit_app/features/best_selling_fruits/presentation/screens/best_selling_fruits_screen.dart';
-import 'package:fruit_app/features/home/presentation/screens/home_screen.dart';
+import 'package:fruit_app/features/home/presentation/screens/main_screen.dart';
 
 import '../../features/on_boarding/presentation/screen/on_boarding_screen.dart';
 import '../../features/splash/presentation/screen/splash_screen.dart';
@@ -18,7 +18,7 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case 'signup':
       return MaterialPageRoute(builder: (context) => const SignUpScreen());
     case 'home':
-      return MaterialPageRoute(builder: (context) => const HomeScreen());
+      return MaterialPageRoute(builder: (context) => const MainScreen());
     case 'best_selling':
       return MaterialPageRoute(builder: (context) => const BestSellingScreen());
 

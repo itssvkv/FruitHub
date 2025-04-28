@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_app/core/widgets/search_text_field.dart';
 import 'package:fruit_app/features/home/presentation/screens/widgets/best_selling_header.dart';
 
@@ -6,8 +7,24 @@ import 'package:fruit_app/features/home/presentation/screens/widgets/featured_li
 import 'package:fruit_app/features/home/presentation/screens/widgets/home_screen_header.dart';
 import 'package:fruit_app/features/home/presentation/screens/widgets/products_grid_view.dart';
 
-class HomeScreenBody extends StatelessWidget {
-  const HomeScreenBody({super.key});
+class HomeScreenBody extends StatefulWidget {
+  const HomeScreenBody({
+    super.key,
+  });
+
+  @override
+  State<HomeScreenBody> createState() => _HomeScreenBodyState();
+}
+
+
+
+class _HomeScreenBodyState extends State<HomeScreenBody> {
+
+  @override
+  void initState() {
+  context.read<ProductsCubit>()
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -36,8 +53,7 @@ class HomeScreenBody extends StatelessWidget {
               ],
             ),
           ),
-          ProductsGridView(
-          ),
+          ProductsGridView(),
         ],
       ),
     );

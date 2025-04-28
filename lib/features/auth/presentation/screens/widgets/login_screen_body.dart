@@ -12,7 +12,7 @@ import 'package:fruit_app/features/auth/presentation/cubit/login_cubit/login_cub
 import 'package:fruit_app/features/auth/presentation/screens/widgets/dont_have_an_account_widget.dart';
 import 'package:fruit_app/features/auth/presentation/screens/widgets/or_divider.dart';
 import 'package:fruit_app/features/auth/presentation/screens/widgets/social_login_button.dart';
-import 'package:fruit_app/features/home/presentation/screens/home_screen.dart';
+import 'package:fruit_app/features/home/presentation/screens/main_screen.dart';
 
 import '../../../../../core/services/shared_preferences_service.dart';
 import '../../../../../core/utils/app_images.dart';
@@ -96,7 +96,7 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
                   } else if (state is LoginSuccess) {
                     loginCubit.isLoading = false;
                     Navigator.pushReplacementNamed(
-                        context, HomeScreen.routeName);
+                        context, MainScreen.routeName);
                     SharedPreferencesService.setValue(kIsLogin, true);
                   } else if (state is LoginFailure) {
                     loginCubit.isLoading = false;
