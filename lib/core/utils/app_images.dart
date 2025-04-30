@@ -97,5 +97,9 @@ class Assets {
   /// Assets for assetsImagesSearchIcon
   /// assets/images/search_icon.svg
   static const String assetsImagesSearchIcon = "assets/images/search_icon.svg";
+
+  /// Assets for assetsImagesTrash
+  /// assets/images/trash.svg
+  static const String assetsImagesTrash = "assets/images/trash.svg";
 }
 

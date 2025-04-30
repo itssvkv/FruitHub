@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:fruit_app/core/data/models/product_model.dart';
 import 'package:fruit_app/core/domain/entities/product_entity.dart';
@@ -15,15 +17,12 @@ class ProductRepoImpl implements ProductsRepo {
     try {
       var data = await remoteService.getData(
         path: RemotePaths.getProducts,
-        query: {
-          'limit': 10,
-          'orderBy': 'sellingCount',
-          'descending': true
-        },
+        query: {'limit': 10, 'orderBy': 'sellingCount', 'descending': true},
       ) as List<Map<String, dynamic>>;
       List<ProductModel> result =
           data.map((e) => ProductModel.fromJson(e)).toList();
       List<ProductEntity> products = result.map((e) => e.toEntity()).toList();
+      log(products.length.toString());
       return right(products);
     } catch (e) {
       return left(ServerFailure(e.toString()));

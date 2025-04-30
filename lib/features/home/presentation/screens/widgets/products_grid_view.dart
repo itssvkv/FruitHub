@@ -1,12 +1,14 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 import '../../../../../core/domain/entities/product_entity.dart';
 import '../../../../../core/widgets/fruit_item.dart';
 
 class ProductsGridView extends StatelessWidget {
-  const ProductsGridView({super.key});
+  const ProductsGridView({super.key, required this.products});
 
-  // final List<ProductEntity> products;
+  final List<ProductEntity> products;
   @override
   Widget build(BuildContext context) {
     final product = ProductEntity(
@@ -25,7 +27,7 @@ class ProductsGridView extends StatelessWidget {
     );
 
     return SliverGrid.builder(
-      itemCount: 10,
+      itemCount: products.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         childAspectRatio: 163 / 214,
@@ -33,8 +35,9 @@ class ProductsGridView extends StatelessWidget {
         crossAxisSpacing: 16,
       ),
       itemBuilder: (context, index) {
+        log(products.toString());
         return FruitItem(
-          productEntity: product,
+          productEntity: products[index],
         );
       },
     );
