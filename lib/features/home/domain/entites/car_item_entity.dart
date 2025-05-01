@@ -5,7 +5,6 @@ import 'package:fruit_app/core/domain/entities/product_entity.dart';
 @immutable
 // ignore: must_be_immutable
 class CartItemEntity extends Equatable {
-  
   final ProductEntity productEntity;
   int quanitty;
 
@@ -24,7 +23,9 @@ class CartItemEntity extends Equatable {
   }
 
   decreasQuantity() {
-    quanitty--;
+    if (quanitty != 0) {
+      quanitty--;
+    }
   }
 
   @override

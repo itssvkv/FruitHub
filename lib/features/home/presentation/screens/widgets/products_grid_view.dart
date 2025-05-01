@@ -11,20 +11,20 @@ class ProductsGridView extends StatelessWidget {
   final List<ProductEntity> products;
   @override
   Widget build(BuildContext context) {
-    final product = ProductEntity(
-      name: 'Apple',
-      code: 'APL123',
-      description: 'Fresh and juicy red apples',
-      price: 2.5,
-      reviews: [],
-      expirationsMonths: 6,
-      numberOfCalories: 95,
-      unitAmount: 1,
-      isOrganic: true,
-      isFeatured: true,
-      imageUrl:
-          'https://i5.walmartimages.com/seo/Fresh-Gala-Apple-Each_f46d4fa7-6108-4450-a610-cc95a1ca28c5_3.38c2c5b2f003a0aafa618f3b4dc3cbbd.jpeg',
-    );
+    // final product = ProductEntity(
+    //   name: 'Apple',
+    //   code: 'APL123',
+    //   description: 'Fresh and juicy red apples',
+    //   price: 2.5,
+    //   reviews: [],
+    //   expirationsMonths: 6,
+    //   numberOfCalories: 95,
+    //   unitAmount: 1,
+    //   isOrganic: true,
+    //   isFeatured: true,
+    //   imageUrl:
+    //       'https://i5.walmartimages.com/seo/Fresh-Gala-Apple-Each_f46d4fa7-6108-4450-a610-cc95a1ca28c5_3.38c2c5b2f003a0aafa618f3b4dc3cbbd.jpeg',
+    // );
 
     return SliverGrid.builder(
       itemCount: products.length,

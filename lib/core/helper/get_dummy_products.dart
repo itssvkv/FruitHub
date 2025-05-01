@@ -1,10 +1,6 @@
-
-
 import 'package:fruit_app/core/domain/entities/product_entity.dart';
 
-
 ProductEntity getDummyProduct() {
-  
   return ProductEntity(
     name: 'Apple',
     code: '123',
