@@ -1,4 +1,6 @@
+import 'package:fruit_app/core/data/repository/orders_repo_impl.dart';
 import 'package:fruit_app/core/data/repository/product_repo_impl.dart';
+import 'package:fruit_app/core/domain/repository/orders_repo.dart';
 import 'package:fruit_app/core/domain/repository/product_repo.dart';
 import 'package:fruit_app/core/services/firebase_auth_service.dart';
 import 'package:fruit_app/core/services/firestore_service.dart';
@@ -17,4 +19,10 @@ void setup() {
       remoteService: getIt<RemoteService>()));
   getIt.registerSingleton<ProductsRepo>(
       ProductRepoImpl(remoteService: getIt<RemoteService>()));
+
+  getIt.registerSingleton<OrdersRepo>(
+    OrdersRepoImpl(
+      getIt<RemoteService>(),
+    ),
+  );
 }

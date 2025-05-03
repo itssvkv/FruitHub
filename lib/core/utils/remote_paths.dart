@@ -3,4 +3,5 @@ class RemotePaths {
   static const getUserData = 'users';
   static const getProducts = 'products';
   static const checkUserExists = 'users';
+    static const addOrder = 'Orders';
 }
